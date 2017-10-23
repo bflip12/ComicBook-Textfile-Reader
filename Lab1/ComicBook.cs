@@ -16,19 +16,14 @@ namespace Lab1
     /// <summary>
     /// Contains the parameters of the comicbook object, constructor and get/set methods
     /// </summary>
-    class ComicBook : IComparable<ComicBook>
+    class ComicBook
     {
-        public string publisher { get; set; }
-
-        public string title { get; set; }
-
-        public int issue { get; set; }
-
-        public string date { get; set; }
-
-        public decimal bookValue { get; set; }
-
-        public decimal marketValue { get; set; }
+        private string publisher;
+        private string title;
+        private int issue;
+        private string date;
+        private decimal bookValue;
+        private decimal marketValue;
 
         /// <summary>
         /// default constructor
@@ -52,12 +47,102 @@ namespace Lab1
             this.bookValue = bookValue;
             this.marketValue = marketValue;
         }
+       /// <summary>
+       /// returns the objects publisher parameter
+       /// </summary>
+       /// <returns></returns>
+        public string GetPublisher()
+        {
+            return publisher;
+        }
         /// <summary>
-        /// returns the objects publisher parameter
+        /// returns the objects title parameter
         /// </summary>
-        /// <returns></returns>
-
- 
+        /// <returns>string containing title</returns>
+        public string GetTitle()
+        {
+            return title;
+        }
+        /// <summary>
+        /// returns the objects issue parameter
+        /// </summary>
+        /// <returns>int containing issue</returns>
+        public int GetIssue()
+        {
+            return issue;
+        }
+        /// <summary>
+        /// returns the objects date parameter
+        /// </summary>
+        /// <returns>string containing date</returns>
+        public string GetDate()
+        {
+            return date;
+        }
+        /// <summary>
+        /// returns the objects bookvalue parameter
+        /// </summary>
+        /// <returns>decimal containing bookvalue</returns>
+        public decimal GetBookValue()
+        {
+            return bookValue;
+        }
+        /// <summary>
+        /// returns the objects marketvalue parameter
+        /// </summary>
+        /// <returns>decimal containing marketvalue</returns>
+        public decimal GetMarketValue()
+        {
+            return marketValue;
+        }
+        /// <summary>
+        /// changes the objects publisher value to the parameter value
+        /// </summary>
+        /// <param name="publisher"></param>
+        public void SetPublisher(string publisher)
+        {
+            this.publisher = publisher;
+        }
+        /// <summary>
+        /// changes the objects title value to the parameter value
+        /// </summary>
+        /// <param name="title">title value set by user</param>
+        public void SetTitle(string title)
+        {
+            this.title = title;
+        }
+        /// <summary>
+        /// changes the objects issue value to the parameter value
+        /// </summary>
+        /// <param name="issue">issue value set by user</param>
+        public void SetIssue(int issue)
+        {
+            this.issue = issue;
+        }
+        /// <summary>
+        /// changes the objects date value to the parameter value
+        /// </summary>
+        /// <param name="date">date value set by user</param>
+        public void SetDate(string date)
+        {
+            this.date = date;
+        }
+        /// <summary>
+        /// changes the objects bookvalue value to the parameter value
+        /// </summary>
+        /// <param name="bookValue">bookvalue value set by user</param>
+        public void SetBookValue(decimal bookValue)
+        {
+            this.bookValue = bookValue;
+        }
+        /// <summary>
+        /// changes the objects marketvalue value to the parameter value
+        /// </summary>
+        /// <param name="marketValue">marketvalue value set by user</param>
+        public void SetMarketValue(decimal marketValue)
+        {
+            this.marketValue = marketValue;
+        }
 
        /// <summary>
        /// returns a formatted string containing the parameters of the comicbook object to the console
@@ -65,42 +150,6 @@ namespace Lab1
         public void displayComic()
         {
            Console.WriteLine("{0,-10}  {1,-25}  {2,-5}  {3,-15}  {4,-10}  {5,-10}",  publisher,  title,  issue,  date,  bookValue,  marketValue);
-        }
-
-        public static ComicBookComparer GetComparer()
-        {
-            return new ComicBook.ComicBookComparer();
-        }
-        public int CompareTo(ComicBook rhs)
-        {
-            return this.issue.CompareTo(rhs.issue);
-        }
-
-        public int CompareTo(ComicBook rhs, ComicBook.ComicBookComparer.ComparisonType Which)
-        {
-            switch(Which)
-            {
-                case ComicBook.ComicBookComparer.ComparisonType.issue:
-                    return this.issue.CompareTo(rhs.issue);
-                case ComicBook.ComicBookComparer.ComparisonType.publisher:
-                    return this.publisher.CompareTo(rhs.publisher);
-                case ComicBook.ComicBookComparer.ComparisonType.title:
-                    return this.title.CompareTo(rhs.title);
-                case ComicBook.ComicBookComparer.ComparisonType.date:
-                    return this.date.CompareTo(rhs.date);
-                case ComicBook.ComicBookComparer.ComparisonType.bookValue:
-                    return this.bookValue.CompareTo(rhs.bookValue);
-                case ComicBook.ComicBookComparer.ComparisonType.marketValue:
-                    return this.marketValue.CompareTo(rhs.marketValue);
-            }
-            return 0;
-        }
-
-        public class ComicBookComparer
-        {
-            public class ComparisonType
-            {
-            }
         }
     }
 }

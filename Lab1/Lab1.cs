@@ -5,7 +5,6 @@
 // the program will be to display the list of comicbook in a sorted format that is decided by the user
 // Date created: 1/22/2017
 // Last Date Modified: 2/3/2017
-//
 using System;
 using System.Collections.Generic;
 using System.IO;
